@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rustic Roast Café</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      color: #3e2723;
+      background-color: #fdf9f5;
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #4e342e;
+      color: white;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #d7ccc8;
+    }
+
+    .hero {
+      background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOKJFMU5q4YYB1aIgGzbkdmE8M-isdpDk1kw&s') center/cover no-repeat;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .hero button {
+      padding: 12px 30px;
+      background: #795548;
+      color: white;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      border-radius: 5px;
+    }
+
+    .hero button:hover {
+      background: #5d4037;
+    }
+
+    section {
+      padding: 60px 50px;
+      text-align: center;
+    }
+
+    .about, .menu, .contact {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .about {
+      background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      background-attachment: fixed;
+      color: white;
+      padding: 100px 50px;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .about::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      border-radius: 10px;
+    }
+
+    .about h2, .about p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .about h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .menu h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .menu-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .menu-item {
+      background: #fff;
+      padding: 20px;
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .menu-item img {
+      width: 100%;
+      border-radius: 10px;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .menu-item h4 {
+      margin-top: 15px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+    }
+
+    .menu-item p {
+      color: #6d4c41;
+      font-weight: bold;
+    }
+
+    .contact h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background: #4e342e;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
+      .menu-items {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero h2 {
+        font-size: 2.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Rustic Roast Café</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Where Every Cup Feels Like Home</h2>
+      <p>Discover the art of slow living with every pour at Rustic Roast Café.</p>
+      <button>View Menu</button>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About Rustic Roast</h2>
+    <p>Welcome to Rustic Roast Café — your cozy escape filled with freshly roasted coffee, handcrafted pastries, and the warm aroma of community. We brew with passion, serve with love, and create moments worth savoring.</p>
+  </section>
+
+  <section id="menu" class="menu">
+    <h2>Our Specialties</h2>
+    <div class="menu-items">
+      <div class="menu-item">
+        <img src="https://49thcoffee.com/cdn/shop/products/Lifestyle2_d3a5834d-35c4-4c89-ac51-5022069cd61d_1024x1024.png?v=1761971952" alt="Espresso">
+        <h4>Signature Espresso</h4>
+        <p>180</p>
+      </div>
+      <div class="menu-item">
+        <img src="data:image/jpeg;base64,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" alt="Cappuccino">
+        <h4>Velvet Cappuccino</h4>
+        <p>220</p>
+      </div>
+      <div class="menu-item">
+        <img src="https://www.whiskaffair.com/wp-content/uploads/2021/01/Caramel-Latte-2-3.jpg" alt="Latte">
+        <h4>Caramel Latte</h4>
+        <p>250-</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>📍 Hacienda Samal Bataan</p>
+    <p>📞 0993 043 1547</p>
+    <p>✉️ rusticroastcafe@gmail.com</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Rustic Roast Café. All rights reserved.</p>
+  </footer>
+</body>
+</html>
